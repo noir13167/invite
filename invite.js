@@ -20,6 +20,33 @@
     updateParallax();
   }
 
+  /* ---------- background audio ---------- */
+  var signalAudio = document.getElementById('signal-audio');
+  var audioToggle = document.getElementById('audio-toggle');
+
+  function showAudioToggle() {
+    if (audioToggle) audioToggle.classList.add('show');
+  }
+
+  function hideAudioToggle() {
+    if (audioToggle) audioToggle.classList.remove('show');
+  }
+
+  function playSignal() {
+    if (!signalAudio) return;
+    signalAudio.volume = 0.45;
+    var playPromise = signalAudio.play();
+    if (playPromise && playPromise.then) {
+      playPromise.then(hideAudioToggle).catch(showAudioToggle);
+    }
+  }
+
+  if (signalAudio) {
+    playSignal();
+    window.addEventListener('pointerdown', playSignal, { once: true });
+    if (audioToggle) audioToggle.addEventListener('click', playSignal);
+  }
+
   /* ---------- scroll reveal ---------- */
   var reveals = document.querySelectorAll('.reveal');
   if ('IntersectionObserver' in window) {

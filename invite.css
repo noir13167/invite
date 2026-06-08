@@ -92,6 +92,34 @@ body{
   filter:blur(1px); mix-blend-mode:screen; opacity:.0;
   animation:track 9s linear infinite;
 }
+.audio-toggle{
+  position:fixed;
+  right:clamp(14px,4vw,28px);
+  bottom:clamp(14px,4vw,28px);
+  z-index:120;
+  border:1px solid rgba(26,214,230,.52);
+  background:linear-gradient(180deg, rgba(9,7,18,.88), rgba(6,4,12,.92));
+  color:var(--cyan);
+  font-family:'JetBrains Mono', monospace;
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  padding:11px 13px;
+  box-shadow:0 0 18px rgba(26,214,230,.18), inset 0 0 18px rgba(255,46,154,.08);
+  opacity:0;
+  pointer-events:none;
+  transform:translateY(12px);
+  transition:opacity .35s ease, transform .35s ease, border-color .2s ease;
+}
+.audio-toggle.show{
+  opacity:.92;
+  pointer-events:auto;
+  transform:none;
+}
+.audio-toggle:hover{
+  border-color:var(--cyan);
+}
 @keyframes track{
   0%{ top:105%; opacity:0 }
   3%{ opacity:.9 }
@@ -492,6 +520,62 @@ image-slot{
 }
 .map-slot{ width:100%; aspect-ratio:16/10; margin-top:clamp(18px,5vw,26px); }
 .slot-cap{ font-size:9px; letter-spacing:.26em; text-transform:uppercase; color:var(--muted); margin-top:8px; text-align:center; }
+
+/* ============================================================
+   TEAM
+   ============================================================ */
+#team{
+  min-height:100svh;
+  background:
+    radial-gradient(85% 70% at 50% 50%, rgba(120,12,18,.20), transparent 64%),
+    linear-gradient(90deg, #050408 0%, #13060c 48%, #050408 100%);
+}
+#team .scene-bg img{
+  object-fit:contain;
+  object-position:center center;
+  background:
+    radial-gradient(80% 70% at 50% 45%, rgba(120,12,18,.34), transparent 70%),
+    #07050b;
+}
+#team .scene-overlay{
+  background:
+    radial-gradient(72% 62% at 50% 40%, rgba(7,6,14,.10) 0%, rgba(7,6,14,.34) 52%, rgba(7,6,14,.88) 100%),
+    linear-gradient(180deg, rgba(7,6,14,.58) 0%, rgba(7,6,14,.18) 36%, rgba(7,6,14,.86) 100%);
+}
+#team .scene-inner{
+  max-width:900px;
+  transform:translateY(19svh);
+}
+.team-title{
+  font-family:'Oswald', sans-serif;
+  font-weight:700;
+  text-transform:uppercase;
+  font-size:clamp(46px,10vw,132px);
+  line-height:.9;
+  letter-spacing:.055em;
+  margin:clamp(14px,3vw,26px) auto 0;
+}
+.team-sub{
+  font-family:'JetBrains Mono', monospace;
+  font-weight:700;
+  font-size:clamp(14px,2vw,23px);
+  line-height:1.5;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--cyan-soft);
+  text-shadow:0 0 18px rgba(26,214,230,.42), 0 0 18px rgba(0,0,0,.78);
+  margin:clamp(18px,3vw,30px) auto 0;
+}
+
+@media (max-width:600px){
+  #team .scene-inner{
+    transform:translateY(22svh);
+  }
+
+  .team-title{
+    font-size:clamp(42px,12vw,58px);
+  }
+}
 
 /* ============================================================
    CASE FILE (dossier evidence)
