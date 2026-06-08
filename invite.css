@@ -455,11 +455,15 @@ main{ position:relative; z-index:1; }
    P.S. handwritten note
    ============================================================ */
 .note{
-  font-family:'Caveat', cursive; font-weight:600;
-  font-size:clamp(22px,6.5vw,34px); line-height:1.4; color:var(--cyan-soft);
+  max-width:min(720px,86vw);
+  margin-inline:auto;
+  font-family:'Oswald', sans-serif; font-weight:600;
+  font-size:clamp(20px,4vw,34px); line-height:1.35; color:var(--cyan-soft);
+  letter-spacing:.03em;
+  text-align:center;
   text-shadow:0 0 18px rgba(26,214,230,.25);
 }
-.note .pink{ color:var(--pink-soft); text-shadow:0 0 18px rgba(255,46,154,.3); }
+.note .pink{ color:var(--pink-soft); white-space:nowrap; text-shadow:0 0 18px rgba(255,46,154,.3); }
 #mission .scene-bg img{
   object-position:center center;
 }
@@ -594,7 +598,7 @@ image-slot{
 .ev .ev-title{ font-family:'Oswald',sans-serif; font-weight:600; font-size:clamp(15px,4.4vw,20px); letter-spacing:.03em; text-transform:uppercase; color:var(--ink); margin-bottom:7px; }
 .ev .ev-body{ font-size:clamp(13px,3.6vw,15px); line-height:1.7; color:var(--muted); }
 .ev .ev-body .hl{ color:var(--cyan-soft); }
-.ev .ev-body .q{ color:var(--amber); font-style:normal; }
+.ev .ev-body .q{ color:var(--cyan-soft); font-style:normal; }
 .redacted{ background:#000; color:#000; padding:0 .3em; border-radius:1px; user-select:none; }
 
 /* ============================================================
@@ -752,14 +756,14 @@ image-slot{
 
 #hero .hero-sub{
   position:absolute;
-  top:calc(50% + clamp(28px,3.5vw,58px));
+  top:calc(50% + clamp(20px,2.7vw,42px));
   left:50%;
   width:min(88vw,760px);
   transform:translateX(-50%) !important;
   font-style:normal;
   font-weight:700;
   font-size:clamp(19px,1.45vw,28px);
-  line-height:1.35;
+  line-height:1.28;
   margin:0;
   text-wrap:balance;
   z-index:3;
@@ -819,9 +823,9 @@ image-slot{
   }
 
   #hero .hero-sub{
-    top:calc(50% + 30px);
+    top:calc(50% + 10px);
     width:88vw;
-    font-size:clamp(20px,5.2vw,23px);
+    font-size:clamp(21px,5.6vw,25px);
   }
 
   #hero .hero-meta{
@@ -930,5 +934,52 @@ image-slot{
 
   .detail .dt-val{
     font-size:21px;
+  }
+}
+
+/* ============================================================
+   MICRO LABEL SCALE
+   Slightly improves small uppercase labels while keeping spacing safe.
+   ============================================================ */
+.eyebrow{
+  font-size:clamp(11px,3vw,14px);
+  letter-spacing:.36em;
+}
+
+.label{
+  font-size:clamp(10px,2.8vw,12px);
+  letter-spacing:.30em;
+}
+
+.hero-meta{
+  font-size:clamp(11px,3vw,13px);
+  letter-spacing:.24em;
+}
+
+.scroll-cue{
+  font-size:11px;
+}
+
+.tcard .row,
+.tcard .ftitle,
+.detail .dt-label,
+.cd-label,
+.slot-cap,
+.footer-id{
+  font-size:11px;
+}
+
+@media (max-width:699px){
+  .eyebrow{
+    letter-spacing:.28em;
+  }
+
+  .label{
+    letter-spacing:.24em;
+  }
+
+  .hero-meta{
+    font-size:10px;
+    letter-spacing:.22em;
   }
 }
