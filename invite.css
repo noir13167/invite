@@ -594,7 +594,7 @@ image-slot{
 .ev .ev-title{ font-family:'Oswald',sans-serif; font-weight:600; font-size:clamp(15px,4.4vw,20px); letter-spacing:.03em; text-transform:uppercase; color:var(--ink); margin-bottom:7px; }
 .ev .ev-body{ font-size:clamp(13px,3.6vw,15px); line-height:1.7; color:var(--muted); }
 .ev .ev-body .hl{ color:var(--cyan-soft); }
-.ev .ev-body .q{ color:var(--amber); font-style:italic; }
+.ev .ev-body .q{ color:var(--amber); font-style:normal; }
 .redacted{ background:#000; color:#000; padding:0 .3em; border-radius:1px; user-select:none; }
 
 /* ============================================================
@@ -752,7 +752,7 @@ image-slot{
 
 #hero .hero-sub{
   position:absolute;
-  top:calc(50% + clamp(38px,4.4vw,76px));
+  top:calc(50% + clamp(28px,3.5vw,58px));
   left:50%;
   width:min(88vw,760px);
   transform:translateX(-50%) !important;
@@ -819,7 +819,7 @@ image-slot{
   }
 
   #hero .hero-sub{
-    top:calc(50% + 42px);
+    top:calc(50% + 30px);
     width:88vw;
     font-size:clamp(20px,5.2vw,23px);
   }
@@ -873,4 +873,62 @@ image-slot{
 .final-line, .signoff, .footer-id,
 .slot-cap, image-slot{
   position:relative;
+}
+
+/* ============================================================
+   READABILITY PASS
+   Slightly larger body copy without changing the big title scale.
+   ============================================================ */
+@media (min-width:700px){
+  .lede{
+    font-size:clamp(16px,1.18vw,21px);
+    line-height:1.75;
+  }
+
+  .tcard .row,
+  .tcard .ftitle,
+  .detail .dt-label,
+  .cd-label,
+  .slot-cap,
+  .footer-id{
+    font-size:11px;
+  }
+
+  .tcard .fval{
+    font-size:clamp(17px,1.2vw,22px);
+  }
+
+  .detail .dt-val{
+    font-size:clamp(22px,1.65vw,30px);
+  }
+
+  .ev .ev-title{
+    font-size:clamp(18px,1.35vw,24px);
+  }
+
+  .ev .ev-body{
+    font-size:clamp(15px,1.08vw,19px);
+    line-height:1.75;
+  }
+}
+
+@media (max-width:699px){
+  .lede{
+    font-size:16px;
+    line-height:1.75;
+  }
+
+  .tcard .fval,
+  .ev .ev-body{
+    font-size:15px;
+    line-height:1.72;
+  }
+
+  .ev .ev-title{
+    font-size:17px;
+  }
+
+  .detail .dt-val{
+    font-size:21px;
+  }
 }
