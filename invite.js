@@ -84,6 +84,24 @@
     }, { passive: true });
   }
 
+  /* ---------- viewport-controlled background videos ---------- */
+  var bgVideos = document.querySelectorAll('.video-bg video');
+  if (bgVideos.length && 'IntersectionObserver' in window) {
+    var videoIo = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        var video = entry.target;
+        if (entry.isIntersecting) {
+          var playPromise = video.play();
+          if (playPromise && playPromise.catch) playPromise.catch(function () {});
+        } else {
+          video.pause();
+        }
+      });
+    }, { threshold: 0.35 });
+
+    bgVideos.forEach(function (video) { videoIo.observe(video); });
+  }
+
   /* ---------- countdown to 13.06.2026 16:00 ---------- */
   var TARGET = new Date(2026, 5, 13, 16, 0, 0).getTime(); // month is 0-indexed (5 = June)
   var el_d = document.getElementById('cd-d');

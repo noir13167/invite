@@ -440,6 +440,13 @@ main{ position:relative; z-index:1; }
     radial-gradient(82% 70% at 50% 44%, rgba(7,6,14,.12) 0%, rgba(7,6,14,.42) 58%, rgba(7,6,14,.82) 100%),
     linear-gradient(180deg, rgba(7,6,14,.46) 0%, rgba(7,6,14,.16) 36%, rgba(7,6,14,.74) 100%);
 }
+#mission .hero-sub{
+  font-family:'Oswald', sans-serif !important;
+  font-style:normal !important;
+  font-weight:600;
+  text-transform:uppercase;
+  letter-spacing:.04em;
+}
 
 /* ============================================================
    IMAGE SLOTS
@@ -504,6 +511,53 @@ image-slot{
 .ev .ev-body .hl{ color:var(--cyan-soft); }
 .ev .ev-body .q{ color:var(--amber); font-style:italic; }
 .redacted{ background:#000; color:#000; padding:0 .3em; border-radius:1px; user-select:none; }
+
+/* ============================================================
+   DEMOGORGON VIDEO
+   ============================================================ */
+#demogorgon{
+  min-height:100svh;
+  background:#050408;
+}
+.video-bg{
+  position:absolute;
+  inset:0;
+  z-index:0;
+  overflow:hidden;
+  pointer-events:none;
+}
+.video-bg video{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center center;
+  display:block;
+}
+#demogorgon .scene-overlay{
+  background:
+    radial-gradient(72% 62% at 50% 48%, rgba(7,6,14,.10) 0%, rgba(7,6,14,.46) 56%, rgba(7,6,14,.92) 100%),
+    linear-gradient(180deg, rgba(7,6,14,.72) 0%, rgba(7,6,14,.22) 42%, rgba(7,6,14,.86) 100%);
+}
+#demogorgon .scene-inner{
+  max-width:960px;
+}
+#demogorgon .label{
+  color:var(--red);
+  text-shadow:0 0 16px rgba(255,34,51,.38);
+}
+#demogorgon .code-red-title{
+  font-size:clamp(54px,11vw,154px);
+  line-height:.88;
+  margin:clamp(18px,3vw,30px) auto;
+}
+#demogorgon .lede{
+  max-width:760px;
+  margin-left:auto;
+  margin-right:auto;
+  font-size:clamp(17px,2.2vw,28px);
+  color:var(--ink);
+  text-shadow:0 0 20px rgba(0,0,0,.8);
+}
 
 /* ============================================================
    FINALE
@@ -617,6 +671,8 @@ image-slot{
   left:50%;
   width:min(88vw,760px);
   transform:translateX(-50%) !important;
+  font-style:normal;
+  font-weight:700;
   font-size:clamp(19px,1.45vw,28px);
   line-height:1.35;
   margin:0;
